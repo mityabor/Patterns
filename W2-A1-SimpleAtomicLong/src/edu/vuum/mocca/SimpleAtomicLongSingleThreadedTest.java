@@ -2,6 +2,7 @@ package edu.vuum.mocca;
 //package edu.vuum.mocca;
 
 import static org.junit.Assert.assertEquals;
+import SimpleAtomicLong;
 
 import org.junit.Assert;
 import org.junit.Test;

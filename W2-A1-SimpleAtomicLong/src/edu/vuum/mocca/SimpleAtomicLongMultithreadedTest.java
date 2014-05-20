@@ -2,6 +2,7 @@ package edu.vuum.mocca;
 //package edu.vuum.mocca;
 
 import static org.junit.Assert.*;
+import SimpleAtomicLong;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
