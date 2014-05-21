@@ -20,7 +20,6 @@ public class SimpleSemaphore {
     { 
         // TODO - you fill in here
     	mPermits = permits;
-    	MAX_PERMITS = permits;
     	mLock = new ReentrantLock(fair);
     	mCond = mLock.newCondition();
     }
@@ -50,7 +49,7 @@ public class SimpleSemaphore {
      */
     void release() {
         // TODO - you fill in here
-    	if(mPermits<MAX_PERMITS) mPermits++;
+    	mPermits++;
     	mLock.unlock();
     }
 
@@ -72,6 +71,6 @@ public class SimpleSemaphore {
      */
     // TODO - you fill in here
     private int mPermits;
-    private final int MAX_PERMITS;
+ 
 }
 
