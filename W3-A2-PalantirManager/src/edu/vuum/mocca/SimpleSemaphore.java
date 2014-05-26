@@ -1,3 +1,5 @@
+package edu.vuum.mocca;
+
 import java.util.concurrent.locks.AbstractQueuedSynchronizer.ConditionObject;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.Lock;
@@ -71,6 +73,14 @@ public class SimpleSemaphore {
      */
     // TODO - you fill in here
     private int mPermits;
+    
+    /**
+     * Return the number of permits available.
+     */
+    public int availablePermits() {
+        // TODO - you fill in here by changing null to the appropriate
+        // return value.
+        return mPermits;
+    }
  
 }
-
