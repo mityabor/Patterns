@@ -32,7 +32,7 @@ public class SimpleSemaphore {
      * Define a count of the number of available permits.
      */
     // TODO - you fill in here
-    private int mPermits;
+    private volatile int mPermits;
 	
     /**
      * Constructor initialize the data members.  
