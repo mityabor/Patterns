@@ -52,8 +52,22 @@ public class SimpleSemaphore {
      */
     public void acquire() throws InterruptedException {
         // TODO - you fill in here
-    	if(mPermits > 0) mPermits--;
     	mLock.lockInterruptibly();
+      	try{
+    		if(mPermits<=0)
+				try {
+					mCond.await();
+				} catch (InterruptedException e) {
+					
+					e.printStackTrace();
+				}
+    			mPermits--;
+    	}
+    	finally
+    	{    
+    		mLock.unlock();
+    	}
+
     }
 
     /**
@@ -62,8 +76,23 @@ public class SimpleSemaphore {
      */
     public void acquireUninterruptibly() {
         // TODO - you fill in here
-    	if(mPermits > 0) mPermits--;
+    	
+    
     	mLock.lock();
+    	try{
+    		if(mPermits<=0)
+				try {
+					mCond.await();
+				} catch (InterruptedException e) {
+				
+					e.printStackTrace();
+				}
+    			mPermits--;
+    	}
+    	finally
+    	{    
+    		mLock.unlock();
+    	}
     }
 
     /**
@@ -71,8 +100,18 @@ public class SimpleSemaphore {
      */
     void release() {
         // TODO - you fill in here
-    	mPermits++;
-    	mLock.unlock();
+//    	mPermits++;
+    	mLock.lock();
+    	try{
+    		
+    		mPermits++;
+    		mCond.signal();
+    	}
+    	finally
+    	{
+    		mLock.unlock();
+    	}
+  
     }
     
     /**
