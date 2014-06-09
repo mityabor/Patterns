@@ -54,7 +54,7 @@ public class SimpleSemaphore {
         // TODO - you fill in here
     	mLock.lockInterruptibly();
       	try{
-    		if(mPermits<=0)
+    		while(mPermits<=0)
 				try {
 					mCond.await();
 				} catch (InterruptedException e) {
@@ -80,7 +80,7 @@ public class SimpleSemaphore {
     
     	mLock.lock();
     	try{
-    		if(mPermits<=0)
+    		while(mPermits<=0)
 				try {
 					mCond.await();
 				} catch (InterruptedException e) {
