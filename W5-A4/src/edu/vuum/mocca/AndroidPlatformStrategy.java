@@ -65,23 +65,30 @@ public class AndroidPlatformStrategy extends PlatformStrategy
 		
         // TODO - You fill in here.
 		
+    	mActivity.get().runOnUiThread(new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				mTextViewOutput.append(outputString+"\n");
+			}
+		});
     	
-    	
-	   	Looper uiLooper = Looper.getMainLooper();
-    	Runnable printRunnable = new 
-    			Runnable() {
-					
-					@Override
-					public void run() 
-					{
-				          
-//						mTextViewOutput.append("\n"+outputString);
-						mTextViewOutput.append(outputString+"\n");
-												
-					}
-				};
-		Handler mHandler = new Handler(uiLooper);
-		mHandler.post(printRunnable);
+//	   	Looper uiLooper = Looper.getMainLooper();
+//    	Runnable printRunnable = new 
+//    			Runnable() {
+//					
+//					@Override
+//					public void run() 
+//					{
+//				          
+////				
+//						mTextViewOutput.append(outputString+"\n");
+//												
+//					}
+//				};
+//		Handler mHandler = new Handler(uiLooper);
+//		mHandler.post(printRunnable);
     	
 		
 		
